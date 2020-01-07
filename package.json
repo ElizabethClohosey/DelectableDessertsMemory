@@ -2,7 +2,7 @@
   "name": "delectable-desserts-memory",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ElizabethClohosey.github.io/delectable-desserts-memory/",
+  "homepage": "http://ElizabethClohosey.github.io/DelectableDessertsMemory/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
