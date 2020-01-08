@@ -5,9 +5,59 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* overflow: hidden; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.nav {
+  /* border: 3px solid white; */
+  /* background: black; */
+}
+
+.nav-text {
+  font-size: 1em;
+  font-weight: 600;
+  /* width: 50%; */
+  margin-right: 2%;
+}
+
+.navbar-light
+.nav-text {
+  color: black;
+}
+
+
+
+.jumbotron {
+  padding: 10%;
+  color: black;
+  margin-bottom: 0;
+  /* border: white; */
+  /* background-image: url("Assets/Images/Dessert-12.jpg"); */
+}
+
+.jumbotron p {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.jumbotron h1 {
+  /* font-weight: 500; */
+  font-size: 4em;
+  font-family: 'Lobster', cursive;
+}
+
+.card {
+  border: none;
+}
+
+.card-image {
+  /* border: 2px solid red; */
+  margin-bottom: 10%;
+  height: 100%;
+  width: 100%;
 }
