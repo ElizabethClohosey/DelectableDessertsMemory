@@ -1,9 +1,6 @@
 import React from "react";
-// import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from "./components/NavBar.js";
 import Header from "./components/Jumbotron.js";
-// import Game from "./components/Game.js";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import images from "./components/Images.js";
 
@@ -20,9 +17,8 @@ class App extends React.Component {
   };
 
   handleImageClick = imageId => {
-    // console.log("You clicked an image");
-    // After first image is clicked, changing first image click from true to false.
-    // Updating game message
+    // After first image is clicked - initiate game
+    // Updating game message, changing current score and handling high score
     if (this.state.initialClick) {
       this.setState({
         initialClick: false,
@@ -30,14 +26,9 @@ class App extends React.Component {
         currentScore: 1
       });
       this.handleHighScore();
-      console.log("Initial click high score?", this.state.highScore);
     } else {
+      //checking image array to see if images was previously clicked
       this.checkImageArray(imageId);
-      // this.handleHighScore();
-      console.log(
-        "This is the else initial click high score",
-        this.state.highScore
-      );
     }
 
     // Storing images in empty array after image is clicked.
@@ -49,54 +40,36 @@ class App extends React.Component {
     this.setState({ clickedImages, imageArray: shuffledImages });
   };
 
+  // What I do if image was prviously clicked or not
   checkImageArray = imageId => {
     const hasBeenClicked = this.state.clickedImages.includes(imageId);
-    // console.log("checking image array", imageId);
 
+    // if image has been clicked
     if (hasBeenClicked) {
+      // reset game
       this.setState({
         initialClick: true,
         gameMessage: "Game Over!  No Dessert For You!!! Click any image to play again",
-        currentScore: 0
+        currentScore: 0,
+        clickedImage: []
       });
-
-      // this.handleGameReset();
-      //Update message (game over!  No dessert for you)
-      //Reset game
-      console.log("game over, no dessert for you");
+    // if image was not clicked (pushed to imageArray), increment current score and handle high score
     } else {
-      // super(props);
       this.setState({
         currentScore: this.state.currentScore + 1,
-        highScore: this.state.highScore + 0
       });
-      // this.handleHighScore();
-      console.log("This is the game over high score", this.state.highScore);
       this.handleHighScore();
     }
   };
 
   handleHighScore = () => {
+    //increment high score by 1 
     this.setState({ highScore: this.state.highScore + 1 });
-    console.log("This is the handle high score function", this.state.highScore);
+    //if high score is higher than current score, stop incrementing
     if (this.state.highScore > this.state.currentScore) {
       this.setState({ highScore: this.state.highScore + 0 });
     }
   };
-
-  // handleHighScore = () => {
-  //   if (this.state.currentScore > this.state.highScore) {
-  //     this.setState({ highScore: this.state.highScore + 1 });
-  //   }
-  // }
-
-  // handleGameReset = () => {
-  //   if (this.state.currentScore === 0) {
-  //     this.setState({ gameMessage: "Choose any delectable dessert to start playing!", currentScore: 0, highScore: this.state.highScore })
-  //   }
-  // }
-
-  // SAVE HIGH SCORE!!!!
 
   render() {
     return (
